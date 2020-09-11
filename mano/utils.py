@@ -40,7 +40,7 @@ def to_np(array, dtype=np.float32):
         array = np.array(array.todense(), dtype=dtype)
     elif torch.is_tensor(array):
         array = array.detach().cpu().numpy()
-    return array.astype(dtype)
+    return np.array(array, dtype=dtype) #array.astype(dtype)
 
 
 def rot_mat_to_euler(rot_mats):
